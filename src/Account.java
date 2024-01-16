@@ -1,14 +1,14 @@
 public class Account {
-    private Customer currentUser;
+    private Customer customer;
     private double balance;
     private String accountName;
     public Account() {
-        this.currentUser = currentUser;
+        this.customer = customer;
         this.balance = balance;
         this.accountName = accountName;
     }
-    public Customer getCurrentUser() {
-        return currentUser;
+    public Customer getCustomer() {
+        return customer;
     }
     public double getBalance() {
         return balance;

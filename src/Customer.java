@@ -3,8 +3,8 @@ public class Customer {
     private int PIN;
     private Account savingsAccount;
     private Account checkingsAccount;
-    public Customer() {
-        this.name = name;
+    public Customer(String name, int pin) {
+        this.name = this.name;
         this.PIN = PIN;
     }
     public String getName() {
