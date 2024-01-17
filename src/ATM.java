@@ -23,7 +23,7 @@ public class ATM {
         Scanner scan = new Scanner(System.in);
         System.out.print(ConsoleUtility.PURPLE + "Please enter your name: " + ConsoleUtility.RESET);
         String name = scan.nextLine();
-        System.out.print(ConsoleUtility.RED + "Please enter your PIN: " + ConsoleUtility.RESET);
+        System.out.print(ConsoleUtility.RED + "Please enter your PIN (only 4 numbers and no spaces please): " + ConsoleUtility.RESET);
         int pin = scan.nextInt();
         scan.nextLine();
         System.out.println(ConsoleUtility.YELLOW + "Would you like to make a (C)heckings account or a (S)aving account" + ConsoleUtility.RESET);
@@ -41,15 +41,69 @@ public class ATM {
         boolean continueTransaction = true;
         while (continueTransaction) {
             System.out.println("Main Menu:");
-            System.out.println(ConsoleUtility.RED + "1." + ConsoleUtility.RESET + " Withdraw money");
-            System.out.println(ConsoleUtility.YELLOW + "2." + ConsoleUtility.RESET + " Deposit money");
-            System.out.println(ConsoleUtility.YELLOW + "3." + ConsoleUtility.RESET + " Transfer money between accounts");
-            System.out.println(ConsoleUtility.GREEN + "4." + " Get account balances");
-            System.out.println(ConsoleUtility.BLUE + "5." + ConsoleUtility.RESET + " Get transaction history");
-            System.out.println(ConsoleUtility.PURPLE + "6." + ConsoleUtility.RESET + " Change PIN");
-            System.out.println(ConsoleUtility.PURPLE + "7." + ConsoleUtility.RESET + " Exit");
+            System.out.println(ConsoleUtility.WHITE + "Please select an option: " + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.RED + "(1)" + " Withdraw money" + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.YELLOW + "(2)" + " Deposit money" + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.YELLOW + "(3)" + " Transfer money between accounts" + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.GREEN + "(4)" + " Get account balances" + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.BLUE + "(5)" + " Get transaction history" + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.PURPLE + "(6)" + " Change PIN" + ConsoleUtility.RESET);
+            System.out.println(ConsoleUtility.PURPLE + "(7)" + " Exit" + ConsoleUtility.RESET);
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
+            withDraw(choice);
+        }
+    }
+
+    private void withDraw(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 1) {
+            System.out.println(ConsoleUtility.RED + "How much money would you like to withdraw and from which account?" + ConsoleUtility.RESET);
+            int withDraw = scan.nextInt();
+            deposit(choice);
+        }
+    }
+
+    private void deposit(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 2) {
+            System.out.println(ConsoleUtility.CYAN + "How much money would you like to deposit and from which account?" + ConsoleUtility.RESET);
+            int deposit = scan.nextInt();
+            transfer(choice);
+        }
+    }
+    private void transfer(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 3) {
+            System.out.println(ConsoleUtility.GREEN + "How much would you like to transfer?" + ConsoleUtility.RESET);
+            accountBalances(choice);
+        }
+    }
+    private void accountBalances(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 4) {
+            System.out.println(ConsoleUtility.PURPLE + "");
+            transactionHistory(choice);
+        }
+    }
+    private void transactionHistory(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 5) {
+            System.out.println(ConsoleUtility.BLUE + "");
+            changePIN(choice);
+        }
+    }
+    private void changePIN(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 6) {
+            System.out.println(ConsoleUtility.RED + "");
+            exit(choice);
+        }
+    }
+    private void exit(int choice) {
+        Scanner scan = new Scanner(System.in);
+        if (choice == 7) {
+            System.out.println(ConsoleUtility.RED + "");
         }
     }
 }
