@@ -1,20 +1,20 @@
 public class Customer {
     private String name;
-    private int PIN;
+    private int customerPin;
     private Account savingsAccount;
     private Account checkingsAccount;
-    public Customer(String name, int pin) {
+    public Customer(String name, int Pin) {
         this.name = this.name;
-        this.PIN = PIN;
+        this.customerPin = Pin;
     }
     public String getName() {
         return name;
     }
     public int getPIN() {
-        return PIN;
+        return customerPin;
     }
     public void setPIN(int setnewPIN) {
-        this.PIN = setnewPIN;
+        this.customerPin = setnewPIN;
     }
     public Account getcheckingsAccount() {
         return checkingsAccount;
