@@ -1,19 +1,37 @@
 public class Account {
-    private Customer customer;
+    private String accountType;
     private double balance;
-    private String accountName;
-    public Account(String checkingAccount, int i, Customer customer) {
-        this.customer = this.customer;
+    private Customer customer;
+
+    public Account(String accountType, double balance, Customer customer) {
+        this.accountType = accountType;
         this.balance = balance;
-        this.accountName = accountName;
+        this.customer = customer;
     }
-    public Customer getCustomer() {
-        return customer;
+
+    public String getAccountType() {
+        return accountType;
     }
+
     public double getBalance() {
         return balance;
     }
-    public String getAccountName() {
-        return accountName;
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 }

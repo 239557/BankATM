@@ -1,25 +1,27 @@
 public class Customer {
     private String name;
-    private int customerPin;
+    private int pin;
     private Account savingsAccount;
-    private Account checkingsAccount;
-    public Customer(String name, int Pin) {
-        this.name = this.name;
-        this.customerPin = Pin;
+    private Account checkingAccount;
+    public Customer(String name, int pin) {
+        this.name = name;
+        this.pin = pin;
+        this.savingsAccount = new Account("savings", 0.0, this);
+        this.checkingAccount = new Account("checking", 0.0, this);
     }
     public String getName() {
         return name;
     }
-    public int getPIN() {
-        return customerPin;
+    public int getPin() {
+        return pin;
     }
-    public void setPIN(int setnewPIN) {
-        this.customerPin = setnewPIN;
+    public void setPin(int newPin) {
+        this.pin = newPin;
     }
-    public Account getcheckingsAccount() {
-        return checkingsAccount;
-    }
-    public Account getsavingsAccount() {
+    public Account getSavingsAccount() {
         return savingsAccount;
+    }
+    public Account getCheckingAccount() {
+        return checkingAccount;
     }
 }
