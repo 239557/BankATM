@@ -31,14 +31,20 @@ public class ATM {
             String name = scanner.nextLine();
             System.out.println(ConsoleUtility.RED + "Choose a 4-digit PIN:" + ConsoleUtility.RESET);
             int pin = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
+            // while loop to see if the customer does not enter a 4-digit PIN
+            while (String.valueOf(pin).length() != 4) {
+            System.out.println(ConsoleUtility.RED + "Please enter a 4-digit PIN." + ConsoleUtility.RESET);
+            pin = scanner.nextInt();
+            scanner.nextLine();
+        }
             this.customer = new Customer(name, pin);
             System.out.println(ConsoleUtility.CYAN + "Account created successfully!" + ConsoleUtility.RESET);
         }
     private boolean verifyPin() {
         System.out.println(ConsoleUtility.RED + "Please re-enter your PIN:" + ConsoleUtility.RESET);
         int inputPin = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine();
         if (inputPin == customer.getPin()) {
             return true;
         } else {
